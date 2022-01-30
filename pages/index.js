@@ -4,7 +4,6 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 
 function Title(props) {
-    console.log(props);
     const Tag = props.tag || 'h1';
     return (
         <>
@@ -70,7 +69,10 @@ export default function PaginaInicial() {
                         as="form"
                         onSubmit={function (event) {
                             event.preventDefault();
-                            roteamento.push('/chat');
+                            roteamento.push({
+                                pathname: '/chat',
+                                query:{user: username}
+                            });
                         }}
                         styleSheet={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
